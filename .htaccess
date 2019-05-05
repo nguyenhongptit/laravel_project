@@ -1,0 +1,40 @@
+RewriteEngine On
+#rewrite trang chu
+RewriteRule ^trang-chu.html$ index.php
+RewriteRule ^lien-he.html$ index.php?controller=contact
+RewriteRule ^gio-hang.html$ index.php?controller=cart
+RewriteRule ^tin-tuc.html$ index.php?controller=allnews
+
+#rewrite index.php?controller=news_detail&id=13
+RewriteRule ^tin-tuc/chi-tiet/(.*)/(.*)$ index.php?controller=news_detail&id=$1
+
+
+RewriteRule ^trang-tin-tuc/trang/(.*)$ index.php?controller=allnews&p=$1
+
+
+RewriteRule ^tin-tuc/danh-muc/(.*)/(.*)$ index.php?controller=category_news&id=$1
+
+#rewrite index.php?controller=category_news&id=4&p=1
+
+RewriteRule ^tin-tuc/danh-muc/(.*)/(.*)$ index.php?controller=category_news&id=$1&p=$2
+#san pham
+
+RewriteRule ^san-pham/chi-tiet/(.*)/(.*)$ index.php?controller=product_detail&id=$1
+
+RewriteRule ^trang-san-pham.html$ index.php?controller=allproduct
+
+RewriteRule ^san-pham/danh-muc/(.*)/(.*)$ index.php?controller=category_product&id=$1
+
+RewriteRule ^trang-san-pham/trang/(.*)$ index.php?controller=allproduct&p=$1
+
+#rewrite index.php?controller=category_product&id=4&p=1
+
+RewriteRule ^san-pham/danh-muc/(.*)/(.*)$ index.php?controller=category_product&id=$1&p=$2
+#rewrite index.php?controller=searchprice&gia=0kden200k
+
+RewriteRule ^san-pham/tim-kiem/(.*) index.php?controller=searchprice&gia=$1
+
+
+#gio-hang
+RewriteRule ^checkout.html index.php?controller=checkout
+
